@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Ganuwa Admin - Server Test</h1>
+    <div id="results"></div>
+
+    <script>
+        const results = document.getElementById('results');
+
+        // Test 1: Frontend server
+        results.innerHTML += '<p class="success">✓ Frontend server is running (you can see this page)</p>';
+
+        // Test 2: Backend API
+        fetch('http://localhost:5001/api/v1/health')
+            .then(res => res.json())
+            .then(data => {
+                results.innerHTML += '<p class="success">✓ Backend API is running: ' + JSON.stringify(data) + '</p>';
+            })
+            .catch(err => {
+                results.innerHTML += '<p class="error">✗ Backend API error: ' + err.message + '</p>';
+            });
+
+        // Test 3: React app
+        results.innerHTML += '<p><a href="/">Go to React App</a></p>';
+    </script>
+</body>
+</html>

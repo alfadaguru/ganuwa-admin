@@ -1,0 +1,218 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - link "G Ganuwa CMS" [ref=e6] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e8]: G
+        - generic [ref=e9]: Ganuwa CMS
+      - navigation [ref=e10]:
+        - link "Dashboard" [ref=e11] [cursor=pointer]:
+          - /url: /dashboard
+          - img [ref=e12]
+          - generic [ref=e15]: Dashboard
+        - link "News" [ref=e16] [cursor=pointer]:
+          - /url: /content/news
+          - img [ref=e17]
+          - generic [ref=e20]: News
+        - link "Hero Banners" [ref=e21] [cursor=pointer]:
+          - /url: /content/hero-banners
+          - img [ref=e22]
+          - generic [ref=e26]: Hero Banners
+        - link "Announcements" [ref=e27] [cursor=pointer]:
+          - /url: /content/announcements
+          - img [ref=e28]
+          - generic [ref=e31]: Announcements
+        - link "Press Releases" [ref=e32] [cursor=pointer]:
+          - /url: /content/press-releases
+          - img [ref=e33]
+          - generic [ref=e36]: Press Releases
+        - link "Events" [ref=e37] [cursor=pointer]:
+          - /url: /content/events
+          - img [ref=e38]
+          - generic [ref=e40]: Events
+        - link "Leaders" [ref=e41] [cursor=pointer]:
+          - /url: /content/leaders
+          - img [ref=e42]
+          - generic [ref=e47]: Leaders
+        - link "Services" [ref=e48] [cursor=pointer]:
+          - /url: /content/services
+          - img [ref=e49]
+          - generic [ref=e54]: Services
+        - link "Projects" [ref=e55] [cursor=pointer]:
+          - /url: /content/projects
+          - img [ref=e56]
+          - generic [ref=e58]: Projects
+        - link "MDAs" [ref=e59] [cursor=pointer]:
+          - /url: /content/mdas
+          - img [ref=e60]
+          - generic [ref=e62]: MDAs
+        - link "LGAs" [ref=e63] [cursor=pointer]:
+          - /url: /content/lgas
+          - img [ref=e64]
+          - generic [ref=e67]: LGAs
+        - link "Media" [ref=e68] [cursor=pointer]:
+          - /url: /content/media
+          - img [ref=e69]
+          - generic [ref=e71]: Media
+        - link "Quick Links" [ref=e72] [cursor=pointer]:
+          - /url: /content/quick-links
+          - img [ref=e73]
+          - generic [ref=e76]: Quick Links
+        - link "Pages" [ref=e77] [cursor=pointer]:
+          - /url: /content/pages
+          - img [ref=e78]
+          - generic [ref=e81]: Pages
+        - link "FAQs" [ref=e82] [cursor=pointer]:
+          - /url: /content/faqs
+          - img [ref=e83]
+          - generic [ref=e86]: FAQs
+        - link "Contacts" [ref=e87] [cursor=pointer]:
+          - /url: /content/contacts
+          - img [ref=e88]
+          - generic [ref=e91]: Contacts
+        - link "Subscribers" [ref=e92] [cursor=pointer]:
+          - /url: /content/subscribers
+          - img [ref=e93]
+          - generic [ref=e96]: Subscribers
+        - link "Users" [ref=e97] [cursor=pointer]:
+          - /url: /content/users
+          - img [ref=e98]
+          - generic [ref=e101]: Users
+    - generic [ref=e102]:
+      - banner [ref=e103]:
+        - generic [ref=e104]:
+          - heading "Hero Banners" [level=1] [ref=e105]
+          - button "Super Admin super_admin S" [ref=e107] [cursor=pointer]:
+            - generic [ref=e108]:
+              - generic [ref=e109]: Super Admin
+              - generic [ref=e110]: super_admin
+            - generic [ref=e111]: S
+            - img [ref=e112]
+      - main [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - heading "Hero Banners" [level=1] [ref=e118]
+              - paragraph [ref=e119]: Manage homepage hero banners
+            - button "Add Banner" [ref=e120] [cursor=pointer]:
+              - img [ref=e121]
+              - text: Add Banner
+          - generic [ref=e123]:
+            - img [ref=e124]
+            - textbox "Search banners..." [ref=e127]
+          - table [ref=e130]:
+            - rowgroup [ref=e131]:
+              - row "Title Order Status Actions" [ref=e132]:
+                - columnheader "Title" [ref=e133] [cursor=pointer]:
+                  - generic [ref=e135]: Title
+                - columnheader "Order" [ref=e136] [cursor=pointer]:
+                  - generic [ref=e138]: Order
+                - columnheader "Status" [ref=e139] [cursor=pointer]:
+                  - generic [ref=e141]: Status
+                - columnheader "Actions" [ref=e142]
+            - rowgroup [ref=e143]:
+              - row "Latest Developments Infrastructure & Economic Growth 3 Active" [ref=e144]:
+                - cell "Latest Developments Infrastructure & Economic Growth" [ref=e145]:
+                  - generic [ref=e146]:
+                    - paragraph [ref=e147]: Latest Developments
+                    - paragraph [ref=e148]: Infrastructure & Economic Growth
+                - cell "3" [ref=e149]
+                - cell "Active" [ref=e150]
+                - cell [ref=e151]:
+                  - generic [ref=e152]:
+                    - button "Edit" [ref=e153] [cursor=pointer]:
+                      - img [ref=e154]
+                    - button "Delete" [ref=e156] [cursor=pointer]:
+                      - img [ref=e157]
+              - row "Digital Services Portal Fast, Easy, and Secure 2 Active" [ref=e159]:
+                - cell "Digital Services Portal Fast, Easy, and Secure" [ref=e160]:
+                  - generic [ref=e161]:
+                    - paragraph [ref=e162]: Digital Services Portal
+                    - paragraph [ref=e163]: Fast, Easy, and Secure
+                - cell "2" [ref=e164]
+                - cell "Active" [ref=e165]
+                - cell [ref=e166]:
+                  - generic [ref=e167]:
+                    - button "Edit" [ref=e168] [cursor=pointer]:
+                      - img [ref=e169]
+                    - button "Delete" [ref=e171] [cursor=pointer]:
+                      - img [ref=e172]
+              - row "Welcome to Kano State Building a Prosperous Future Together 1 Active" [ref=e174]:
+                - cell "Welcome to Kano State Building a Prosperous Future Together" [ref=e175]:
+                  - generic [ref=e176]:
+                    - paragraph [ref=e177]: Welcome to Kano State
+                    - paragraph [ref=e178]: Building a Prosperous Future Together
+                - cell "1" [ref=e179]
+                - cell "Active" [ref=e180]
+                - cell [ref=e181]:
+                  - generic [ref=e182]:
+                    - button "Edit" [ref=e183] [cursor=pointer]:
+                      - img [ref=e184]
+                    - button "Delete" [ref=e186] [cursor=pointer]:
+                      - img [ref=e187]
+          - generic [ref=e192]:
+            - generic [ref=e193]:
+              - heading "Create Hero Banner" [level=3] [ref=e194]
+              - button [ref=e195] [cursor=pointer]:
+                - img [ref=e196]
+            - generic [ref=e200]:
+              - generic [ref=e201]:
+                - generic [ref=e202]: Banner Image *
+                - generic [ref=e203]:
+                  - img "Banner preview" [ref=e204]
+                  - button [ref=e205] [cursor=pointer]:
+                    - img [ref=e206]
+                - generic [ref=e209]:
+                  - generic [ref=e210]: Image Alt Text
+                  - textbox "Image Alt Text" [ref=e211]:
+                    - /placeholder: Descriptive text for accessibility
+              - generic [ref=e212]:
+                - generic [ref=e213]:
+                  - button "English" [ref=e214] [cursor=pointer]
+                  - button "Hausa" [ref=e215] [cursor=pointer]
+                  - button "Arabic" [ref=e216] [cursor=pointer]
+                - generic [ref=e217]:
+                  - generic [ref=e219]:
+                    - generic [ref=e220]: Title (Arabic)
+                    - textbox "Title (Arabic)" [ref=e221]: Test Hero Banner AR
+                  - generic [ref=e223]:
+                    - generic [ref=e224]: Subtitle (Arabic)
+                    - textbox "Subtitle (Arabic)" [ref=e225]: Test Subtitle AR
+                  - generic [ref=e226]:
+                    - generic [ref=e227]: Description (Arabic)
+                    - textbox "Description (Arabic)" [ref=e228]: Test description in Arabic
+                  - generic [ref=e230]:
+                    - generic [ref=e231]: CTA Button Text (Arabic)
+                    - textbox "CTA Button Text (Arabic)" [ref=e232]:
+                      - /placeholder: e.g., Learn More
+                      - text: اعرف المزيد
+              - generic [ref=e233]:
+                - heading "Call-to-Action Button" [level=3] [ref=e234]
+                - generic [ref=e235]:
+                  - generic [ref=e236]:
+                    - generic [ref=e237]: Button URL
+                    - textbox "Button URL" [ref=e238]:
+                      - /placeholder: https://example.com
+                      - text: https://example.com
+                  - generic [ref=e240] [cursor=pointer]:
+                    - checkbox "Open in new tab" [checked] [ref=e241]
+                    - generic [ref=e242]: Open in new tab
+              - generic [ref=e243]:
+                - heading "Display Settings" [level=3] [ref=e244]
+                - generic [ref=e245]:
+                  - generic [ref=e246]:
+                    - generic [ref=e247]: Display Order*
+                    - spinbutton "Display Order*" [active] [ref=e248]: "1"
+                    - paragraph [ref=e249]: "Invalid input: expected number, received string"
+                  - generic [ref=e251] [cursor=pointer]:
+                    - checkbox "Active" [checked] [ref=e252]
+                    - generic [ref=e253]: Active
+              - generic [ref=e254]:
+                - button "Cancel" [ref=e255] [cursor=pointer]
+                - button "Create Banner" [ref=e256] [cursor=pointer]:
+                  - generic [ref=e257]: Create Banner
+  - region "Notifications Alt+T"
+```
