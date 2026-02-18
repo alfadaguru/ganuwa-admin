@@ -17,31 +17,14 @@ interface Column<T> {
 
 interface News {
   _id: string;
-  title: {
-    en: string;
-    ha?: string;
-    ar?: string;
-  };
+  title: string;
   slug: string;
-  excerpt: {
-    en: string;
-    ha?: string;
-    ar?: string;
-  };
-  content: {
-    en: string;
-    ha?: string;
-    ar?: string;
-  };
+  excerpt: string;
+  content: string;
   category: 'general' | 'politics' | 'economy' | 'education' | 'health' | 'infrastructure';
   tags: string[];
   featuredImage: string;
-  author: {
-    _id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-  } | string;
+  author: string;
   status: 'draft' | 'published' | 'archived';
   publishedAt?: string;
   createdAt: string;
@@ -100,8 +83,8 @@ export default function NewsList() {
       sortable: true,
       render: (item) => (
         <div className="max-w-md">
-          <p className="font-medium text-gray-900 truncate">{item.title.en}</p>
-          <p className="text-sm text-gray-500 truncate">{item.excerpt.en}</p>
+          <p className="font-medium text-gray-900 truncate">{item.title}</p>
+          <p className="text-sm text-gray-500 truncate">{item.excerpt}</p>
         </div>
       ),
     },
@@ -137,10 +120,7 @@ export default function NewsList() {
       key: 'author',
       label: 'Author',
       sortable: true,
-      render: (item) => {
-        if (typeof item.author === 'string') return item.author;
-        return `${item.author.firstName} ${item.author.lastName}`;
-      },
+      render: (item) => item.author,
     },
     {
       key: 'createdAt',
@@ -212,7 +192,7 @@ export default function NewsList() {
       >
         <div className="space-y-4">
           <p className="text-gray-600">
-            Are you sure you want to delete "{deleteConfirm?.title.en}"? This action cannot be undone.
+            Are you sure you want to delete "{deleteConfirm?.title}"? This action cannot be undone.
           </p>
           <div className="flex justify-end space-x-3">
             <button

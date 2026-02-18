@@ -19,14 +19,14 @@ interface Event {
   _id: string;
   title: {
     en: string;
-    ha?: string;
-    ar?: string;
   };
-  slug: string;
   description?: {
     en?: string;
-    ha?: string;
-    ar?: string;
+  };
+  featuredImage?: {
+    url: string;
+    publicId: string;
+    alt: string;
   };
   category: 'government' | 'public' | 'community' | 'cultural' | 'sports' | 'education' | 'health';
   eventDate: string;
@@ -35,7 +35,6 @@ interface Event {
   venue?: {
     name?: string;
     address?: string;
-    lga?: string;
   };
   organizer?: {
     name?: string;
@@ -45,16 +44,9 @@ interface Event {
   registrationRequired: boolean;
   registrationUrl?: string;
   capacity?: number;
-  attendees: number;
   status: 'upcoming' | 'ongoing' | 'completed' | 'cancelled';
   featured: boolean;
-  featuredImage?: {
-    url?: string;
-    publicId?: string;
-    alt?: string;
-  };
-  createdAt: string;
-  updatedAt: string;
+  attendees?: number;
 }
 
 export default function EventsList() {
@@ -148,7 +140,7 @@ export default function EventsList() {
       sortable: true,
       render: (item) => (
         <div className="text-sm">
-          <p className="font-medium text-gray-900">{item.attendees}</p>
+          <p className="font-medium text-gray-900">{item.attendees || 0}</p>
           {item.capacity && (
             <p className="text-gray-500">/ {item.capacity}</p>
           )}

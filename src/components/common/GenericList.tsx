@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { FiPlus, FiSearch } from 'react-icons/fi';
 import { toast } from 'react-toastify';
-import DataTable, { Column } from './DataTable';
+import DataTable, { type Column } from './DataTable';
 import Modal from './Modal';
 
 interface GenericListProps<T extends { _id: string }> {

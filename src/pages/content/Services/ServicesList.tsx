@@ -16,25 +16,11 @@ interface Column<T> {
 
 interface Service {
   _id: string;
-  name: {
-    en: string;
-    ha?: string;
-    ar?: string;
-  };
-  slug: string;
-  description: {
-    en: string;
-    ha?: string;
-    ar?: string;
-  };
+  name: { en: string; ha?: string; ar?: string };
+  description: { en: string; ha?: string; ar?: string };
   icon?: string;
-  category: string;
+  category: 'online_application' | 'license' | 'permit' | 'tax' | 'land' | 'health' | 'education' | 'business' | 'other';
   applicationUrl?: string;
-  requirements?: Array<{
-    en?: string;
-    ha?: string;
-    ar?: string;
-  }>;
   processingTime?: string;
   fee?: string;
   contactPerson?: {
@@ -44,9 +30,6 @@ interface Service {
   };
   status: 'active' | 'inactive' | 'coming_soon';
   displayOrder: number;
-  popularityScore: number;
-  createdAt: string;
-  updatedAt: string;
 }
 
 export default function ServicesList() {

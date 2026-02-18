@@ -16,12 +16,18 @@ interface Column<T> {
 
 interface Job {
   _id: string;
-  title: { en: string };
+  title: { en?: string; ha?: string; ar?: string };
+  description: { en?: string; ha?: string; ar?: string };
   department: string;
-  jobType: 'full-time' | 'part-time' | 'contract' | 'internship';
+  mda?: string;
   location: string;
-  vacancies: number;
+  jobType: 'full-time' | 'part-time' | 'contract' | 'internship';
+  salaryRange: { min: number; max: number; currency: string };
+  requirements: { en?: string; ha?: string; ar?: string };
+  responsibilities: { en?: string; ha?: string; ar?: string };
   applicationDeadline: string;
+  vacancies: number;
+  contactEmail: string;
   status: 'open' | 'closed' | 'filled';
   applicationsCount?: number;
 }
@@ -69,7 +75,7 @@ export default function JobsList() {
       sortable: true,
       render: (item) => (
         <div>
-          <p className="font-medium text-gray-900">{item.title.en}</p>
+          <p className="font-medium text-gray-900">{item.title?.en || 'N/A'}</p>
           <p className="text-sm text-gray-500">{item.department}</p>
         </div>
       ),
@@ -189,7 +195,7 @@ export default function JobsList() {
       >
         <div className="space-y-4">
           <p className="text-gray-600">
-            Are you sure you want to delete <strong>{deleteConfirm?.title.en}</strong>? This action cannot be undone.
+            Are you sure you want to delete <strong>{deleteConfirm?.title?.en || 'this job'}</strong>? This action cannot be undone.
           </p>
           <div className="flex justify-end space-x-3">
             <button

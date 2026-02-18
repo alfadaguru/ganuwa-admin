@@ -1,13 +1,14 @@
-interface FormFieldProps {
+export interface FormFieldProps {
   label: string;
   name: string;
-  type?: 'text' | 'email' | 'password' | 'number' | 'date' | 'datetime-local' | 'url' | 'tel';
+  type?: 'text' | 'email' | 'password' | 'number' | 'date' | 'datetime-local' | 'url' | 'tel' | 'time';
   placeholder?: string;
   register: any;
   error?: { message?: string };
   required?: boolean;
   disabled?: boolean;
   className?: string;
+  step?: string;
 }
 
 export default function FormField({
@@ -20,6 +21,7 @@ export default function FormField({
   required = false,
   disabled = false,
   className = '',
+  step,
 }: FormFieldProps) {
   return (
     <div className={className}>
@@ -32,6 +34,7 @@ export default function FormField({
         type={type}
         placeholder={placeholder}
         disabled={disabled}
+        step={step}
         {...register(name)}
         className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#006838] transition-colors ${
           error

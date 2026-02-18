@@ -16,12 +16,16 @@ interface Column<T> {
 
 interface BudgetDocument {
   _id: string;
-  title: { en: string };
+  title: { en?: string; ha?: string; ar?: string };
+  description: { en?: string; ha?: string; ar?: string };
   category: string;
   year: number;
-  fileSize?: number;
-  downloads: number;
+  fileUrl?: string;
+  publishDate?: string;
   status: 'draft' | 'published' | 'archived';
+  isFeatured: boolean;
+  fileSize?: number;
+  downloads?: number;
 }
 
 export default function BudgetDocumentsList() {
@@ -78,7 +82,7 @@ export default function BudgetDocumentsList() {
     {
       key: 'downloads',
       label: 'Downloads',
-      render: (item) => item.downloads.toLocaleString(),
+      render: (item) => (item.downloads || 0).toLocaleString(),
     },
     {
       key: 'status',

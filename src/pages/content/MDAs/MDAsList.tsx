@@ -17,12 +17,17 @@ interface Column<T> {
 interface MDA {
   _id: string;
   name: { en: string };
-  slug: string;
   acronym?: string;
   type: 'ministry' | 'department' | 'agency';
   description?: { en?: string };
-  head?: { name?: string; title?: string };
-  contactInfo?: { email?: string; phone?: string };
+  logo?: {
+    url: string;
+    publicId: string;
+    alt: string;
+  };
+  head?: {name?: string; title?: string; email?: string; phone?: string };
+  contactInfo?: { email?: string; phone?: string; address?: string; website?: string };
+  displayOrder: number;
   isActive: boolean;
 }
 

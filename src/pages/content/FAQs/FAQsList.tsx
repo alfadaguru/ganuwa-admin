@@ -16,11 +16,12 @@ interface Column<T> {
 
 interface FAQ {
   _id: string;
-  question: { en: string };
+  question: { en?: string };
+  answer: { en?: string };
   category?: string;
-  isActive: boolean;
-  views: number;
   displayOrder: number;
+  isActive: boolean;
+  views?: number;
 }
 
 export default function FAQsList() {
@@ -58,7 +59,7 @@ export default function FAQsList() {
       sortable: true,
       render: (item) => (
         <div>
-          <p className="font-medium text-gray-900">{item.question.en}</p>
+          <p className="font-medium text-gray-900">{item.question?.en || 'N/A'}</p>
           {item.category && <p className="text-sm text-gray-500 capitalize">{item.category}</p>}
         </div>
       ),
@@ -66,7 +67,7 @@ export default function FAQsList() {
     {
       key: 'views',
       label: 'Views',
-      render: (item) => item.views.toLocaleString(),
+      render: (item) => (item.views || 0).toLocaleString(),
     },
     {
       key: 'isActive',
@@ -80,7 +81,7 @@ export default function FAQsList() {
     {
       key: 'displayOrder',
       label: 'Order',
-      render: (item) => item.displayOrder,
+      render: (item) => item.displayOrder || 0,
     },
   ];
 

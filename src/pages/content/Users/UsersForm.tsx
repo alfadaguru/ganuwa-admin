@@ -34,7 +34,7 @@ const userSchema = z.object({
   department: z.string().optional(),
   phoneNumber: z.string().optional(),
   isActive: z.boolean(),
-}).refine((data) => {
+}).refine(() => {
   // Password is required for new users (when not editing)
   // This will be handled separately in the component
   return true;

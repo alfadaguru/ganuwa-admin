@@ -16,11 +16,17 @@ interface Column<T> {
 
 interface Tender {
   _id: string;
-  title: { en: string };
+  title: { en?: string; ha?: string; ar?: string };
+  description: { en?: string; ha?: string; ar?: string };
+  category: string;
   tenderNumber: string;
   value: { amount: number; currency: string };
   openingDate: string;
   closingDate: string;
+  requirements: { en?: string; ha?: string; ar?: string };
+  contactPerson: { name: string; email: string; phone: string };
+  documents: Array<{ url: string; name: string }>;
+  mda?: string;
   status: 'open' | 'closed' | 'awarded' | 'cancelled';
 }
 
@@ -72,7 +78,7 @@ export default function TendersList() {
       render: (item) => (
         <div>
           <p className="font-medium text-gray-900">{item.tenderNumber}</p>
-          <p className="text-sm text-gray-500">{item.title.en}</p>
+          <p className="text-sm text-gray-500">{item.title?.en || 'N/A'}</p>
         </div>
       ),
     },

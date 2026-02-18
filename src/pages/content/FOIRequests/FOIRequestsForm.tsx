@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 import { FiUpload, FiX, FiLoader } from 'react-icons/fi';
 import { foiRequestsAPI, usersAPI } from '../../../services/api';
 import { uploadFile, deleteFile } from '../../../services/uploadService';
-import FormField from '../../../components/common/FormField';
 
 interface FOIRequest {
   _id: string;
@@ -20,7 +19,7 @@ interface FOIRequest {
   status: 'pending' | 'in-review' | 'approved' | 'rejected' | 'completed';
   priority: 'low' | 'medium' | 'high' | 'urgent';
   dueDate: string;
-  assignedTo?: string;
+  assignedTo?: string | { _id: string; name: string };
   responseText?: string;
   responseDocuments?: Array<{ url: string; name: string }>;
   internalNotes?: string;
@@ -57,12 +56,12 @@ export default function FOIRequestsForm({ request, onSuccess }: FOIRequestsFormP
     },
   });
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<FOIRequestFormData>({
+  const { register, handleSubmit, watch } = useForm<FOIRequestFormData>({
     resolver: zodResolver(foiRequestSchema),
     defaultValues: {
       status: request?.status || 'pending',
       priority: request?.priority || 'medium',
-      assignedTo: request?.assignedTo || '',
+      assignedTo: typeof request?.assignedTo === 'object' ? request?.assignedTo?._id : request?.assignedTo || '',
       responseText: request?.responseText || '',
       internalNotes: request?.internalNotes || '',
     },

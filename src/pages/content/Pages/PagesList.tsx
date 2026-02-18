@@ -16,8 +16,14 @@ interface Column<T> {
 
 interface Page {
   _id: string;
-  title: { en: string };
+  title: { en?: string };
   slug: string;
+  content: { en?: string };
+  featuredImage?: {
+    url: string;
+    publicId: string;
+    alt: string;
+  };
   template?: string;
   status: string;
 }
@@ -57,7 +63,7 @@ export default function PagesList() {
       sortable: true,
       render: (item) => (
         <div>
-          <p className="font-medium text-gray-900">{item.title.en}</p>
+          <p className="font-medium text-gray-900">{item.title?.en || 'N/A'}</p>
           <p className="text-sm text-gray-500">{item.slug}</p>
         </div>
       ),
@@ -147,7 +153,7 @@ export default function PagesList() {
       >
         <div className="space-y-4">
           <p className="text-gray-600">
-            Are you sure you want to delete <strong>{deleteConfirm?.title.en}</strong>? This action cannot be undone.
+            Are you sure you want to delete <strong>{deleteConfirm?.title?.en || 'this page'}</strong>? This action cannot be undone.
           </p>
           <div className="flex justify-end space-x-3">
             <button

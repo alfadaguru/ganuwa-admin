@@ -22,7 +22,7 @@ interface Event {
     publicId: string;
     alt: string;
   };
-  category: string;
+  category: 'government' | 'public' | 'community' | 'cultural' | 'sports' | 'education' | 'health';
   eventDate: string;
   startTime?: string;
   endTime?: string;
@@ -38,7 +38,7 @@ interface Event {
   registrationRequired: boolean;
   registrationUrl?: string;
   capacity?: number;
-  status: string;
+  status: 'upcoming' | 'ongoing' | 'completed' | 'cancelled';
   featured: boolean;
 }
 

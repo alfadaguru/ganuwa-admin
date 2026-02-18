@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { FiSearch, FiEdit } from 'react-icons/fi';
+import { FiSearch } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import DataTable from '../../../components/common/DataTable';
 import Modal from '../../../components/common/Modal';
@@ -18,12 +18,17 @@ interface FOIRequest {
   _id: string;
   requestNumber: string;
   requesterName: string;
+  requesterEmail: string;
   subject: string;
+  description: string;
   requestType: 'information' | 'document' | 'data' | 'other';
   status: 'pending' | 'in-review' | 'approved' | 'rejected' | 'completed';
   priority: 'low' | 'medium' | 'high' | 'urgent';
   dueDate: string;
-  assignedTo?: { _id: string; name: string };
+  assignedTo?: string | { _id: string; name: string };
+  responseText?: string;
+  responseDocuments?: Array<{ url: string; name: string }>;
+  internalNotes?: string;
 }
 
 export default function FOIRequestsList() {
@@ -134,7 +139,7 @@ export default function FOIRequestsList() {
     {
       key: 'assignedTo',
       label: 'Assigned To',
-      render: (item) => item.assignedTo?.name || 'Unassigned',
+      render: (item) => (typeof item.assignedTo === 'object' ? item.assignedTo?.name : 'Unassigned'),
     },
   ];
 
@@ -188,7 +193,6 @@ export default function FOIRequestsList() {
         onPageChange={setPage}
         loading={isLoading}
         emptyMessage="No FOI requests found"
-        editLabel="Process"
       />
 
       <Modal

@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
-import { FiUpload, FiTrash2, FiLoader, FiX } from 'react-icons/fi';
+import { FiUpload, FiLoader, FiX } from 'react-icons/fi';
 import { tendersAPI, mdasAPI } from '../../../services/api';
 import { uploadFile, deleteFile } from '../../../services/uploadService';
 import FormField from '../../../components/common/FormField';

@@ -11,7 +11,7 @@ interface Service {
   name: { en: string; ha?: string; ar?: string };
   description: { en: string; ha?: string; ar?: string };
   icon?: string;
-  category: string;
+  category: 'online_application' | 'license' | 'permit' | 'tax' | 'land' | 'health' | 'education' | 'business' | 'other';
   applicationUrl?: string;
   processingTime?: string;
   fee?: string;

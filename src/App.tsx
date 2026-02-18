@@ -52,23 +52,6 @@ function ProtectedRoute({ children }: ProtectedRouteProps) {
   return <>{children}</>;
 }
 
-// Placeholder component for pages not yet implemented
-function PlaceholderPage({ title }: { title: string }) {
-  return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">{title}</h2>
-      <p className="text-gray-600">
-        This page is under construction. The backend API and data models are ready.
-      </p>
-      <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <p className="text-sm text-blue-800">
-          <strong>Status:</strong> Backend ✅ | Frontend UI ⏳
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

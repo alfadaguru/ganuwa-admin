@@ -16,13 +16,20 @@ interface Column<T> {
 
 interface Dataset {
   _id: string;
-  title: { en: string };
+  title: { en?: string; ha?: string; ar?: string };
+  description: { en?: string; ha?: string; ar?: string };
   category: string;
   formats: Array<{ type: string; url: string; size?: number }>;
-  downloads: number;
-  views: number;
-  updatedAt: string;
+  tags: string[];
+  license: string;
+  updateFrequency: string;
+  contactPerson: { name: string; email: string };
+  mda?: string;
+  apiEndpoint?: string;
   status: 'draft' | 'published' | 'archived';
+  downloads?: number;
+  views?: number;
+  updatedAt?: string;
 }
 
 export default function DatasetsList() {
@@ -94,17 +101,17 @@ export default function DatasetsList() {
     {
       key: 'downloads',
       label: 'Downloads',
-      render: (item) => item.downloads.toLocaleString(),
+      render: (item) => (item.downloads || 0).toLocaleString(),
     },
     {
       key: 'views',
       label: 'Views',
-      render: (item) => item.views.toLocaleString(),
+      render: (item) => (item.views || 0).toLocaleString(),
     },
     {
       key: 'lastUpdated',
       label: 'Last Updated',
-      render: (item) => formatDate(item.updatedAt),
+      render: (item) => item.updatedAt ? formatDate(item.updatedAt) : 'N/A',
     },
     {
       key: 'status',

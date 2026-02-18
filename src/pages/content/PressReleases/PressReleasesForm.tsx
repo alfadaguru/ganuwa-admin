@@ -14,7 +14,7 @@ interface PressRelease {
   content: {
     en: string;
   };
-  category: string;
+  category: 'government' | 'development' | 'policy' | 'statement' | 'clarification';
   releaseDate: string;
   contactPerson?: {
     name?: string;
@@ -22,7 +22,7 @@ interface PressRelease {
     email?: string;
     phone?: string;
   };
-  status: string;
+  status: 'draft' | 'published' | 'archived';
 }
 
 const pressReleaseSchema = z.object({
