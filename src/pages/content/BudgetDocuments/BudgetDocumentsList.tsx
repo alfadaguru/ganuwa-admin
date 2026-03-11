@@ -18,12 +18,13 @@ interface BudgetDocument {
   _id: string;
   title: { en?: string; ha?: string; ar?: string };
   description: { en?: string; ha?: string; ar?: string };
-  category: string;
-  year: number;
+  category?: string;
+  tags?: string[];
+  year?: number;
   fileUrl?: string;
   publishDate?: string;
   status: 'draft' | 'published' | 'archived';
-  isFeatured: boolean;
+  isFeatured?: boolean;
   fileSize?: number;
   downloads?: number;
 }
@@ -70,7 +71,16 @@ export default function BudgetDocumentsList() {
       render: (item) => (
         <div>
           <p className="font-medium text-gray-900">{item.title.en}</p>
-          <p className="text-sm text-gray-500 capitalize">{item.category} - {item.year}</p>
+          <div className="flex flex-wrap gap-1 mt-1">
+            {(item.tags || []).slice(0, 3).map((tag) => (
+              <span key={tag} className="px-1.5 py-0.5 bg-green-50 text-green-700 text-xs rounded">
+                {tag}
+              </span>
+            ))}
+            {(item.tags || []).length > 3 && (
+              <span className="text-xs text-gray-400">+{(item.tags || []).length - 3} more</span>
+            )}
+          </div>
         </div>
       ),
     },

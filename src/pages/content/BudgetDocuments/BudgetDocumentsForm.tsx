@@ -13,13 +13,32 @@ interface BudgetDocument {
   _id: string;
   title: { en?: string; ha?: string; ar?: string };
   description: { en?: string; ha?: string; ar?: string };
-  category: string;
-  year: number;
+  category?: string;
+  tags?: string[];
+  year?: number;
   fileUrl?: string;
   publishDate?: string;
   status: 'draft' | 'published' | 'archived';
   isFeatured: boolean;
 }
+
+const ALL_TAGS = [
+  'Audit',
+  'Budget',
+  'Business',
+  'Education',
+  'Finance & Economy',
+  'Health',
+  'Infrastructure',
+  'Judiciary',
+  'Laws',
+  'LGAs',
+  'OCDS',
+  'Procurement',
+  'Public',
+  'Reports',
+  'Roads & Transport',
+];
 
 const budgetDocumentSchema = z.object({
   titleEn: z.string().min(1, 'Title (English) is required'),
@@ -28,8 +47,8 @@ const budgetDocumentSchema = z.object({
   descriptionEn: z.string().min(1, 'Description (English) is required'),
   descriptionHa: z.string().optional(),
   descriptionAr: z.string().optional(),
-  category: z.enum(['annual-budget', 'quarterly-report', 'financial-statement', 'procurement', 'audit-report', 'capital-projects']),
-  year: z.number().min(2000).max(2100),
+  tags: z.array(z.string()).min(1, 'At least one tag is required'),
+  year: z.number().min(2000).max(2100).optional(),
   publishDate: z.string().optional(),
   status: z.enum(['draft', 'published', 'archived']),
   isFeatured: z.boolean(),
@@ -61,7 +80,7 @@ export default function BudgetDocumentsForm({ document, onSuccess }: BudgetDocum
       descriptionEn: document?.description?.en || '',
       descriptionHa: document?.description?.ha || '',
       descriptionAr: document?.description?.ar || '',
-      category: document?.category as any || 'annual-budget',
+      tags: document?.tags || [],
       year: document?.year || new Date().getFullYear(),
       publishDate: document?.publishDate || '',
       status: document?.status || 'draft',
@@ -176,8 +195,8 @@ export default function BudgetDocumentsForm({ document, onSuccess }: BudgetDocum
         ha: data.descriptionHa || undefined,
         ar: data.descriptionAr || undefined,
       },
-      category: data.category,
-      year: Number(data.year),
+      tags: data.tags,
+      year: data.year ? Number(data.year) : undefined,
       fileUrl: uploadedFile.url,
       publishDate: data.publishDate || undefined,
       status: data.status,
@@ -288,32 +307,37 @@ export default function BudgetDocumentsForm({ document, onSuccess }: BudgetDocum
         )}
       </div>
 
-      {/* Category and Year */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Category <span className="text-red-500">*</span>
-          </label>
-          <select
-            {...register('category')}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#006838]"
-          >
-            <option value="annual-budget">Annual Budget</option>
-            <option value="quarterly-report">Quarterly Report</option>
-            <option value="financial-statement">Financial Statement</option>
-            <option value="procurement">Procurement</option>
-            <option value="audit-report">Audit Report</option>
-            <option value="capital-projects">Capital Projects</option>
-          </select>
+      {/* Tags / Categories */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Tags / Categories <span className="text-red-500">*</span>
+        </label>
+        <div className="flex flex-wrap gap-3">
+          {ALL_TAGS.map((tag) => (
+            <label key={tag} className="flex items-center gap-1.5 cursor-pointer">
+              <input
+                type="checkbox"
+                value={tag}
+                {...register('tags')}
+                className="w-4 h-4 text-[#006838] border-gray-300 rounded focus:ring-[#006838]"
+              />
+              <span className="text-sm text-gray-700">{tag}</span>
+            </label>
+          ))}
         </div>
+        {errors.tags && (
+          <p className="mt-1 text-sm text-red-600">{errors.tags.message}</p>
+        )}
+      </div>
 
+      {/* Year */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <FormField
           label="Year"
           name="year"
           type="number"
           register={register}
           error={errors.year}
-          required
         />
       </div>
 
