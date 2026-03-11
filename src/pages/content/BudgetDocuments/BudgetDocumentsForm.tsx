@@ -19,7 +19,7 @@ interface BudgetDocument {
   fileUrl?: string;
   publishDate?: string;
   status: 'draft' | 'published' | 'archived';
-  isFeatured: boolean;
+  isFeatured?: boolean;
 }
 
 const ALL_TAGS = [
