@@ -146,12 +146,6 @@ export default function Login() {
           </div>
         </div>
 
-        {/* Demo Credentials */}
-        <div className="mt-6 bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 text-white text-sm">
-          <p className="font-semibold mb-2">Demo Credentials:</p>
-          <p>Email: admin@kanostate.gov.ng</p>
-          <p>Password: Admin@2025!ChangeMe</p>
-        </div>
       </div>
     </div>
   );
